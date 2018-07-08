@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>MTP | Abhishek’s Blog</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="MTP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here you can catch upon things I am upto recently." />
+<meta property="og:description" content="Here you can catch upon things I am upto recently." />
+<link rel="canonical" href="/mtp/" />
+<meta property="og:url" content="/mtp/" />
+<meta property="og:site_name" content="Abhishek’s Blog" />
+<script type="application/ld+json">
+{"description":"Here you can catch upon things I am upto recently.","@type":"WebPage","url":"/mtp/","headline":"MTP","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Abhishek's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Abhishek&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/project/">Project</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/mtp/">MTP</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">MTP</h1>
+  </header>
+
+  <div class="post-content">
+    <h1 id="eeg-signal-based-image-classification">EEG signal Based Image Classification.</h1>
+
+<p>My Major Technical Project for the Bachelor Degree.</p>
+
+<p>Mentors:</p>
+<ul>
+  <li>Dr. Arnav Bavsar</li>
+  <li>Dr. Varun Dutt</li>
+</ul>
+
+<h2 id="paper-1-personalized-image-classification-from-eeg-signal">Paper 1: Personalized Image classification from EEG signal</h2>
+
+<ul>
+  <li>The paper proposes a end to end deep learning based model for classification of 40 classes from ImageNet dataset.</li>
+  <li>Main contribution of the paper here is to adapt this developed universal model to new user(i.e user specific model).</li>
+</ul>
+
+<p>Model Used: <strong>LSTM</strong>	 (Long short term memory)<br />
+LSTM are improved version of traditional RNN model with gating mechanism which helps to greatly reduce the prolem of vanishing and exploding gradients.</p>
+
+<p><img src="https://image.ibb.co/kFYMj8/Screenshot_from_2018_07_08_20_37_33.png" alt="LSTM model" /></p>
+
+<p>Great sources to study about LSTM:</p>
+<ul>
+  <li><a href="https://youtu.be/QuELiw8tbx8">Lecture by Richard Socher</a>.</li>
+  <li><a href="https://youtu.be/EAt9_4IhC7s">Lecture by Ali Ghodi</a>.</li>
+</ul>
+
+<h1 id="architecture">Architecture</h1>
+<ul>
+  <li>Two stacked LSTM.</li>
+  <li>A dense layer at the end of LSTM.</li>
+  <li>Followed by a softmax classification layer.</li>
+</ul>
+
+<p><img src="https://image.ibb.co/mgwVcT/Screenshot_from_2018_07_08_20_37_13.png" alt="Architecture of model" /></p>
+
+<h1 id="dataset">Dataset</h1>
+<ul>
+  <li>EEG singnals of 5 subjects, 40 classes of Imagenet with each class having 50 sample Image.</li>
+  <li>Show time: 0.5 sec.</li>
+  <li>
+    <p>Train on 80%, Validataion on 10% and Test on 10%.</p>
+  </li>
+  <li>The input to the network is the EEG signal.</li>
+  <li>EEG signals are recorded on a 10-20 electrode using 128 channel brain cap.</li>
+  <li>the signals are capture for 500 ms hence the data to be input present is of dimension 128 X 500.</li>
+  <li>But to avoid any noise due to overlap the signals captured from 250-450ms duration are fed into the network. Input dimension: 128 X 200</li>
+</ul>
+
+<h1 id="personalized-model">Personalized model</h1>
+<p>Once the model has been trained for universal data. The paper tries to tune the performance acording to user.</p>
+<ul>
+  <li>Transfer Learning was used to accomplish this task.</li>
+  <li>The dense layer and the classification layer were re trained with the fixed LSTM weights.</li>
+  <li>This model gave significant improvement on user specific data for a person.</li>
+</ul>
+
+<p><img src="https://image.ibb.co/gvfZ48/Screenshot_from_2018_07_08_20_37_22.png" alt="Personalized Model" /></p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Abhishek&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Abhishek&#39;s Blog</li><li><a class="u-email" href="mailto:1abhishekpal@gmail.com">1abhishekpal@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/abhiishekpal"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">abhiishekpal</span></a></li><li><a href="https://www.twitter.com/172knot"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">172knot</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Here you can catch upon things I am upto recently.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
