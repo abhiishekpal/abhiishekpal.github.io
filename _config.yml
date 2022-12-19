@@ -21,7 +21,7 @@ timezone:
 
 title: Explore with Abhishek                        # the main title
 
-tagline: Welcome to my phase 2 in ML where i dive deeper   # it will display as the sub-title
+tagline: Welcome to my phase 2 in ML where i dive deeper into ML World  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
